@@ -1,1 +1,2 @@
-sed 's/^skip=.*/skip=$(sed 's/^skip=//; t; d; 532d; 540d' $src)/' /nixpkgs/pkgs/os-specific/linux/nvidia-x11/builder.sh > builder.sh.patch
+sed 's/^skip=.*/skip=$(sed '/\/bin\/rm/d; /\/cuda-installer/d; s/^skip=//; t; d' $src)
+/' /nixpkgs/pkgs/os-specific/linux/nvidia-x11/builder.sh > builder.sh.patch
